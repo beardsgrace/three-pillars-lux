@@ -202,7 +202,7 @@ header nav { border-bottom:2px solid #cba46b; background:repeating-linear-gradie
 .editorial-article h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); }
 .editorial-article h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); margin-top: 1.75rem; }
 .editorial-article p, .editorial-article ol { margin-block: .85rem; }
-.article-photo { display: block; width: min(100%, 24rem); height: auto; border-radius: .35rem; }
+.article-photo { display: block; width: min(80%, 18rem); height: auto; border-radius: .35rem; }
 .article-signoff img + br + img { margin-inline-start: 100px; position: relative; top: -6px; }
 @media (max-width: 520px) {
   .library-article { gap: .7rem; }
