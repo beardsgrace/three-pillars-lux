@@ -213,3 +213,38 @@ header nav { border-bottom:2px solid #cba46b; background:repeating-linear-gradie
 @media (min-width: 940px) {
   .library-articles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Masthead still-life motion */
+.masthead-art.orchid { transform-origin: 18% 100%; animation: orchid-sway 9s ease-in-out infinite; }
+.masthead-art.candlelight { right: 0; aspect-ratio: 256 / 154; }
+.candlelight::before {
+  content: "";
+  position: absolute;
+  left: 58.5%;
+  top: 24%;
+  width: 24%;
+  height: 48%;
+  margin-left: -12%;
+  margin-top: -14.4%;
+  background: radial-gradient(ellipse, #ffc47080, #ee87342b 40%, transparent 72%);
+  mix-blend-mode: screen;
+  transform-origin: 50% 72%;
+  animation: candle-flicker 4.3s ease-in-out infinite;
+}
+@keyframes orchid-sway {
+  0%, 100% { transform: rotate(0deg); }
+  40% { transform: rotate(1.2deg); }
+  75% { transform: rotate(-.5deg); }
+}
+@keyframes candle-flicker {
+  0%, 100% { opacity: .52; transform: scale(.9, 1); }
+  16% { opacity: .78; transform: translateX(2%) scale(1.04, 1.12); }
+  29% { opacity: .42; transform: translateX(-2%) scale(.88, .91); }
+  47% { opacity: .68; transform: scale(1, 1.07); }
+  62% { opacity: .48; transform: translateX(1%) scale(.91, .96); }
+  84% { opacity: .74; transform: translateX(-1%) scale(1.05, 1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .masthead-art.orchid, .candlelight::before { animation: none; }
+  .candlelight::before { opacity: .52; }
+}
