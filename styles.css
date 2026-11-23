@@ -78,8 +78,15 @@ form label { display: block; margin-bottom: .35rem; font-weight: bold; }
 .promise-inner { display: flex; align-items: center; gap: 1.5rem; padding-block: 2.2rem; max-width: 56rem; }
 .promise-inner .lotus { flex: 0 0 3.4rem; color: #805d34; }
 .promise p, .disclosures p { margin-top: .55rem; max-width: 65ch; }
-.disclosures { display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; }
-.disclosures p + h3 { margin-top: 1.15rem; }
+.philosophy { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem 2rem; border-top: 1px solid #d6bc97; }
+.philosophy .lead { color: var(--wine); margin: 0; }
+.philosophy-copy p { max-width: 62ch; }
+.philosophy-copy p + p { margin-top: .85rem; }
+.disclosures { padding-block: 1.5rem 1.8rem; }
+.disclosures h2 { font-size: 1.4rem; margin-bottom: .65rem; }
+.disclosure-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 2rem; }
+.disclosures h3 { font-size: 1.05rem; }
+.disclosures p { font-size: .9rem; margin-top: .2rem; }
 .legal p { margin-block: .65rem 1rem; }
 footer { background: var(--deep); color: #f5e7d4; }
 .footer-inner { width: min(100% - 2rem,70rem); margin: auto; padding-block: 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 1rem; }
@@ -94,7 +101,7 @@ footer a:focus-visible, .brand:focus-visible, .home-hero a:focus-visible { outli
 }
 @media (max-width: 480px) {
   .nav-inner { justify-content: start; padding-left: 1rem; }
-  .pillars, .disclosures { grid-template-columns: 1fr; }
+  .pillars, .philosophy, .disclosure-items { grid-template-columns: 1fr; }
   .pillar { padding-block: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { .masthead::before { animation: none; } }
