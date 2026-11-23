@@ -24,12 +24,19 @@ for (const link of document.querySelectorAll(".filters a, .library-sidebar a")) 
     link.href = url.href;
   }
 }
-if (query || activeLink) {
-  const scope = activeLink ? ` in ${activeLink.textContent}` : "";
-  document.querySelector("#result-heading").textContent = query
-    ? `No results for “${query}”${scope}`
-    : `No published articles${scope} yet`;
-  document.querySelector("#result-detail").textContent =
-    "The editorial collection is in preparation.";
+const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+let count = 0;
+for (const article of document.querySelectorAll("[data-article-category]")) {
+  const searchable = `${article.textContent} ${article.dataset.keywords}`.toLowerCase();
+  const matchesCategory = !activeLink || article.dataset.articleCategory === activeLink.dataset.category;
+  article.hidden = !matchesCategory || !terms.every(term => searchable.includes(term));
+  count += Number(!article.hidden);
 }
+
+const scope = activeLink ? ` in ${activeLink.textContent.trim()}` : "";
+document.querySelector("#result-heading").textContent = query
+  ? `Results for “${query}”${scope}`
+  : activeLink ? activeLink.textContent.trim() : "All articles";
+document.querySelector("#article-count").textContent = `${count} published article${count === 1 ? "" : "s"}`;
+document.querySelector("#result-detail").hidden = count !== 0;
 if (window.location.hash === "#library-search") searchForm.elements.q.focus();

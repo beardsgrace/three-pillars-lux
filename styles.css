@@ -192,3 +192,19 @@ header nav { border-bottom:2px solid #cba46b; background:repeating-linear-gradie
 @media (max-width: 400px) {
   .wordmark { font-size: clamp(1.3rem, 6.15vw, 1.65rem); white-space: nowrap; }
 }
+
+.library-article { display: grid; grid-template-columns: minmax(0, 10rem) 1fr; gap: 1rem; align-items: start; margin-block: 1rem; }
+.library-article[hidden] { display: none; }
+.library-article img { display: block; width: 100%; height: auto; border-radius: .35rem; }
+.library-article h3 { margin-block: .25rem .4rem; }
+.editorial-article { max-width: 42rem; margin-inline: auto; }
+.editorial-article header { margin-block: 1rem 1.4rem; }
+.editorial-article h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); }
+.editorial-article h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); margin-top: 1.75rem; }
+.editorial-article p, .editorial-article ol { margin-block: .85rem; }
+.article-photo { display: block; width: min(100%, 24rem); height: auto; border-radius: .35rem; }
+.article-signoff img + br + img { margin-inline-start: 100px; position: relative; top: -6px; }
+@media (max-width: 520px) {
+  .library-article { grid-template-columns: minmax(0, 1fr); }
+  .library-article img { max-width: 14rem; }
+}
