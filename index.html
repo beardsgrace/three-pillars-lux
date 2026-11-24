@@ -14,6 +14,36 @@
   .latest-stories li { border-bottom: 1px solid var(--line); }
   .latest-stories a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem .65rem; color: var(--wine); font: clamp(1.15rem, 3vw, 1.4rem)/1.35 var(--serif); text-decoration: none; }
   .latest-stories a:hover, .latest-stories a:focus-visible { background: #fffaf2; text-decoration: underline; text-underline-offset: .2em; }
+
+  /* Match the steam to the hero image's cover crop and 50% 45% position. */
+  .home-hero .hero-photo { container-type: size; overflow: hidden; }
+  .lexi-coffee__steam {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: max(100cqw, 177.6316cqh);
+    height: max(100cqh, 56.2963cqw);
+    transform: translate(-50%, -45%);
+    pointer-events: none;
+  }
+  .lexi-coffee__steam path {
+    opacity: 0;
+    stroke-width: 9;
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: lexi-steam-rise 5.4s ease-in-out infinite;
+  }
+  .lexi-coffee__steam path:nth-child(2) { stroke-width: 11; animation-duration: 6.2s; animation-delay: -2.1s; }
+  .lexi-coffee__steam path:nth-child(3) { stroke-width: 7; animation-duration: 5.8s; animation-delay: -3.8s; }
+  @keyframes lexi-steam-rise {
+    0% { opacity: 0; transform: scaleY(.54) skewX(6deg); }
+    24% { opacity: .86; }
+    52% { opacity: .64; }
+    82%, 100% { opacity: 0; transform: scaleY(1.17) skewX(-9deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lexi-coffee__steam { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -33,7 +63,26 @@
 <main id="main">
 
 <section class="home-hero split">
-  <div class="hero-photo"><img src="assets/lexi-lifestyle-hero.jpg" alt="Illustration of Lexi relaxing with a warm drink in a sunlit room" width="1350" height="760"></div>
+  <div class="hero-photo"><img src="assets/lexi-lifestyle-hero.jpg" alt="Illustration of Lexi relaxing with a warm drink in a sunlit room" width="1350" height="760">
+    <svg class="lexi-coffee__steam" viewBox="0 0 1350 760" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="lexi-steam-soften" x="-40%" y="-25%" width="180%" height="150%">
+          <feGaussianBlur stdDeviation="2.4"/>
+        </filter>
+        <linearGradient id="lexi-steam-light" gradientUnits="userSpaceOnUse" x1="0" y1="435" x2="0" y2="327">
+          <stop offset="0" stop-color="#fff6e6" stop-opacity=".27"/>
+          <stop offset=".35" stop-color="#fff6e6" stop-opacity=".95"/>
+          <stop offset=".72" stop-color="#fff6e6" stop-opacity=".65"/>
+          <stop offset="1" stop-color="#fff6e6" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#lexi-steam-light)" stroke-linecap="round" filter="url(#lexi-steam-soften)">
+        <path d="M303 435 C313 415 282 400 290 377 S316 349 299 330"/>
+        <path d="M328 435 C315 416 344 403 331 384 S309 354 325 334"/>
+        <path d="M350 435 C362 417 336 407 347 391 S370 366 357 345"/>
+      </g>
+    </svg>
+  </div>
   <div class="hero-copy"><p class="eyebrow">Beauty · Wellness · Lifestyle</p><h1>Luxury Likes<br><em>Restraint</em></h1><p class="lead">A quieter approach to beauty, wellness, and everyday living.</p><a class="button gold" href="library.html">Explore the Library <span aria-hidden="true">→</span></a></div>
 </section>
 <section class="wrap editorial" aria-labelledby="latest-from-lexi">
