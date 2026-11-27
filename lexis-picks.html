@@ -19,6 +19,16 @@
 <link rel="stylesheet" href="styles.css?v=lexis-picks">
 <link rel="stylesheet" href="lexis-picks.css">
 <script src="lexis-picks.js" type="module"></script>
+<style>
+  .picks-hero-media { position: relative; }
+  .picks-hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; pointer-events: none; }
+  .picks-hero-media[data-playing] video { opacity: 1; }
+  .picks-hero-toggle { position: absolute; inset: auto .5rem .5rem auto; min-height: 44px; padding: .35rem .65rem; border: 1px solid var(--gold); border-radius: .25rem; background: var(--deep); color: var(--ivory); font: inherit; font-size: .85rem; cursor: pointer; }
+  .picks-hero-toggle:focus-visible { outline-color: var(--ivory); }
+  @media (prefers-reduced-motion: reduce) {
+    .picks-hero-media video, .picks-hero-toggle { display: none; }
+  }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -37,7 +47,11 @@
 </header>
 <main id="main" class="picks">
   <section class="picks-hero" aria-labelledby="picks-title">
-    <img src="assets/lexis-picks-hero.webp" width="1672" height="941" alt="Lexi in an ivory sweater beside candlelight and flowers." fetchpriority="high">
+    <div class="picks-hero-media">
+      <img src="assets/lexis-picks-hero.webp" width="1672" height="941" alt="Lexi in an ivory sweater beside candlelight and flowers." fetchpriority="high">
+      <video autoplay muted loop playsinline preload="none" poster="assets/lexis-picks-hero.webp" data-src="assets/lexis-picks-flow.mp4" aria-hidden="true"></video>
+      <button class="picks-hero-toggle" type="button" hidden>Pause banner</button>
+    </div>
     <div class="picks-intro">
       <h1 id="picks-title" class="picks-screen-reader">Lexi’s Picks</h1>
       <p class="picks-screen-reader">The Essentials Edit</p>
@@ -80,5 +94,57 @@
 <!-- Lexi chat assistant (ElevenLabs) -->
 <elevenlabs-convai agent-id="agent_3701m8cm3wnyewrbj7wsh1d8zhy3"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<script>
+(() => {
+  const hero = document.querySelector('.picks-hero-media');
+  const video = hero.querySelector('video');
+  const toggle = hero.querySelector('button');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  let manuallyPaused = false;
+
+  function showStill() {
+    hero.removeAttribute('data-playing');
+    toggle.hidden = true;
+  }
+
+  function updateMotion() {
+    if (motion.matches) {
+      manuallyPaused = false;
+      video.autoplay = false;
+      video.pause();
+      showStill();
+      return;
+    }
+    video.autoplay = !manuallyPaused;
+    if (manuallyPaused) return;
+    video.muted = true;
+    if (!video.hasAttribute('src')) video.src = video.dataset.src;
+    video.play().catch(showStill);
+  }
+
+  video.addEventListener('playing', () => {
+    if (motion.matches || manuallyPaused) {
+      video.pause();
+      return;
+    }
+    hero.setAttribute('data-playing', '');
+    toggle.textContent = 'Pause banner';
+    toggle.hidden = false;
+  });
+  video.addEventListener('error', showStill);
+  toggle.addEventListener('click', () => {
+    manuallyPaused = !video.paused;
+    if (manuallyPaused) {
+      video.autoplay = false;
+      video.pause();
+      toggle.textContent = 'Play banner';
+    } else {
+      updateMotion();
+    }
+  });
+  motion.addEventListener('change', updateMotion);
+  updateMotion();
+})();
+</script>
 </body>
 </html>
