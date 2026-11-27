@@ -1,0 +1,119 @@
+{
+  "retailers": {
+    "Amazon": {
+      "active": false,
+      "buttonLabel": "Check Price on Amazon",
+      "disclosure": "Paid link"
+    }
+  },
+  "products": [
+    {
+      "name": "LANEIGE Lip Sleeping Mask",
+      "category": "beauty",
+      "description": "A lip mask for the last step of an evening routine.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "e.l.f. Holy Hydration! Face Cream",
+      "category": "beauty",
+      "description": "A face cream for a skincare routine built around the basics.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "Maybelline Lash Sensational Sky High Mascara",
+      "category": "beauty",
+      "description": "A mascara for a makeup bag that has room for just the essentials.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "Stanley Quencher H2.0 FlowState Tumbler",
+      "category": "wellness",
+      "description": "A tumbler to keep water close at your desk or on the road.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "Nekteck Shiatsu Neck and Back Massager",
+      "category": "wellness",
+      "description": "A neck and back massager to consider for a quiet evening at home.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "ASAKUKI 500ml Essential Oil Diffuser",
+      "category": "wellness",
+      "description": "An essential oil diffuser for adding a favorite scent to a room.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "Bedsure Satin Pillowcases",
+      "category": "lifestyle",
+      "description": "Satin pillowcases for an easy change to the bedding you already have.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "Yankee Candle Clean Cotton",
+      "category": "lifestyle",
+      "description": "A clean-laundry-inspired candle for a quiet corner at home.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    },
+    {
+      "name": "BAGSMART Travel Jewelry Organizer",
+      "category": "lifestyle",
+      "description": "A dedicated place to pack the jewelry you want to bring along.",
+      "imagePath": "",
+      "imageAlt": "",
+      "retailer": "Amazon",
+      "affiliateUrl": "",
+      "relatedArticleUrl": "",
+      "dateAdded": "2026-11-27",
+      "status": "published"
+    }
+  ]
+}
